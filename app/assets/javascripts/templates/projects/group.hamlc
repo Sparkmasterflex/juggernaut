@@ -1,0 +1,5 @@
+%h3.green-bg Projects
+%ul
+  %li No Projects created
+
+%a.add{:href => "/#/projects/new"} Create Project

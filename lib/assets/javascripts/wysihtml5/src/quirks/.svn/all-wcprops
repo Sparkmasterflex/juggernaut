@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/irb/!svn/ver/633/trunk/lib/assets/javascripts/wysihtml5/src/quirks
+END
+redraw.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/irb/!svn/ver/633/trunk/lib/assets/javascripts/wysihtml5/src/quirks/redraw.js
+END
+clean_pasted_html.js
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/irb/!svn/ver/633/trunk/lib/assets/javascripts/wysihtml5/src/quirks/clean_pasted_html.js
+END
+ensure_proper_clearing.js
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/irb/!svn/ver/633/trunk/lib/assets/javascripts/wysihtml5/src/quirks/ensure_proper_clearing.js
+END
+get_correct_inner_html.js
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/irb/!svn/ver/633/trunk/lib/assets/javascripts/wysihtml5/src/quirks/get_correct_inner_html.js
+END
+insert_line_break_on_return.js
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/irb/!svn/ver/633/trunk/lib/assets/javascripts/wysihtml5/src/quirks/insert_line_break_on_return.js
+END

@@ -1,0 +1,83 @@
+@import 'mixins';
+
+body {
+  font: { size: 62.5%; family: Arial, Helvetica, san-serif; }
+  color: $black;
+  background-color: $white;
+}
+
+header ul li {
+  color: $white;
+  font-size: 1.8em;
+  a { color: $white; }
+}
+
+.blk-gradient { @include gradient-two($black, $dk-grey); }
+
+.whitebox { 
+  background: #fff;
+  border: 1px solid $grey
+}
+
+.greybox {
+  background: $grey;
+  border: 1px solid #999;
+}
+
+.green-bg {
+  background: $green;
+  border: 1px solid $dk-green;
+  @include border-radius(3px);
+}
+
+
+.icon {
+  display: inline-block;
+  @include hidden;
+  @include square(20px);
+  background-position: center center;
+  padding: 0;
+}
+
+.menu + menu {
+  text-indent: 0;
+  background: $black;
+  @include border-radius(3px);
+  li { font-size: 1em;
+    a { 
+      color: $white; 
+      font-size: 0.8em;
+      text-decoration: none;
+      &:hover { text-decoration: underline; } 
+    } 
+  }
+}
+
+.tech {
+  li {
+    color: $dk-green;
+    background: $green;
+    background: rgba(74, 143, 61, 0.7);
+    border: 1px solid $dk-green;
+    @include border-radius(3px);
+  }
+}
+
+.switch {
+  li {
+    &:last-child a { @include border-radius(0, 3px, 3px, 0); }
+    a {
+      color: $white;
+      background-color: $dk-grey;
+      text-decoration: none;
+      border-left: 1px solid #444;
+      &:hover, &.active { color: $white; background-color: $black; }
+    }
+  }
+}
+
+.sticker {
+  @include gradient-two($dk-grey, $black);
+  @include border-radius(3px);
+  color: $white;
+}

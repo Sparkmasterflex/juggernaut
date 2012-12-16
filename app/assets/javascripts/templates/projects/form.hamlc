@@ -1,0 +1,65 @@
+%hgroup.green-bg
+  %h3= @header
+  %menu.tabs.switch
+    %li
+      %a.active{:href => "/#/projects/#{@id}"} content
+    %li
+      %a{:href => "/#/projects/#{@id}/images"} images
+
+%form
+  .two-col
+    .field
+      %label{:for => 'title'} Project Title
+      %input#title{:type => 'text', :name => 'title', :value => @title}
+
+  .field
+    %label{:for => 'body-text'} Description
+    %ul#toolbar-ta.green-bg.clearfix
+      %li
+        %a.bold{'data-wysihtml5-command' => "bold"} bold
+      %li
+        %a.italic{'data-wysihtml5-command' => "italic"} italic
+      %li
+        %a.unordered{'data-wysihtml5-command' => "insertUnorderedList"} List
+      %li
+        %a.ordered{'data-wysihtml5-command' => "insertOrderedList"} Numbered List
+      %li
+        %a.h1-icon{'data-wysihtml5-command' => "formatBlock", 'data-wysihtml5-command-value' => "h1"} h1
+      %li
+        %a.h2-icon{'data-wysihtml5-command' => "formatBlock", 'data-wysihtml5-command-value' => "h2"} h2
+      %li
+        %a.speech{'data-wysihtml5-command' => "insertSpeech"} Speech
+    %textarea#body-text= @body or ""
+    
+  .three-col
+    .field
+      %label{:for => 'client'} Client
+      %input{:type => 'text', :name => 'client'}
+
+    .field
+      %label{:for => 'progress'} Progress
+      %select#progress
+        %option Please Select
+        %option{:value => 10}   10%
+        %option{:value => 20}   20%
+        %option{:value => 30}   30%
+        %option{:value => 40}   40%
+        %option{:value => 50}   50%
+        %option{:value => 60}   60%
+        %option{:value => 70}   70%
+        %option{:value => 80}   80%
+        %option{:value => 90}   90%
+        %option{:value => 100} 100%
+    
+    .field
+      %label{:for => 'start-date'} Start Date
+      %input#start-date{:type => 'date', :name => 'start_date', :value => @start_date or ""}
+      
+  .three-col
+    .field
+      %label{:for => 'tech-field'} Enter Technology
+      %input#tech-field{:type => 'text'}
+      %input#technology{:type => 'hidden', :name => 'technology', :value => @technology} 
+    
+  
+  %input{:type => 'submit', :value => 'Submit'}

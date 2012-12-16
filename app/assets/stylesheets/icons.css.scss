@@ -1,0 +1,17 @@
+@import 'mixins';
+
+.add { padding: 0.25em 0 0.25em 1.67em; background: url(icons/add.png) no-repeat left center;}
+.delete { padding: 0.25em 0 0.25em 1.67em; background: url(icons/delete.png) no-repeat left center;}
+.delete.page { padding: 0.25em 0 0.25em 1.67em; background: url(icons/page_delete.png) no-repeat left center;
+  &.icon { padding: 0; }
+}
+.edit { padding: 0.25em 0 0.25em 1.67em; background: url(icons/page_edit.png) no-repeat left center;}
+.invisible { padding: 0.25em 0 0.25em 1.67em; background: url(icons/page_red.png) no-repeat left center;}
+.menu { 
+  padding: 0.25em 0 0.25em 1.67em; 
+  background: $black url(icons/menu.png) no-repeat left center;
+  @include border-radius(5px);
+  border: 1px solid $dk-grey;
+  &.icon { padding: 4px; }
+}
+.visible { padding: 0.25em 0 0.25em 1.67em; background: url(icons/page_green.png) no-repeat left center;}

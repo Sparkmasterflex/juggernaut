@@ -1,0 +1,145 @@
+@import 'mixins';
+
+p, li, a { font-size: 1.2em; 
+  p, li, a, label { font-size: 1em; }
+}
+
+h1, .h1 { font-size: 3.6em; color: $green; }
+h2, .h2 { font-size: 2.4em; color: $white; }
+h3, .h3 { 
+  font-size: 3em; 
+  color: $white;
+  padding: 0.15em 0.33em;
+}
+h4, .h4 { font-size: 2em; color: $black; }
+
+hgroup { position: relative; }
+
+header { 
+  height: 6.5em;
+  padding: 1em 2em; 
+  margin-bottom: 2.5em;
+  h1 { margin-bottom: 0.2em; }
+  h1, h2 { width: 60%; float: left; } 
+}
+
+nav {
+  float: right;
+  width: auto;
+  margin-top: -2em;
+  ul li { 
+    position: relative;
+    float: left; 
+    margin-left: 1em;
+    &:first-child { z-index: 200; }
+    span.menu {
+      position: relative;
+      z-index: 200; 
+      margin-top: -2em;
+      cursor: pointer;
+      &.open { border-color: transparent;} 
+    }
+  }
+  menu {
+    display: none;
+    position: absolute;
+    top: -0.65em;
+    right: -0.25em;
+    width: 11em;
+    padding: 2em 0.83em 0.83em;
+    li { float: none; margin: 0.5em 0; }
+  }
+}
+
+section {
+  width: 110em;
+  margin: 0 auto;
+}
+
+aside {
+  width: 23em;
+  padding: 1em;
+  float: left;
+  .section { 
+    margin: 1.5em 0;
+    &:first-child { margin-top: 0em; } 
+    &:last-child { margin-bottom: 0em; }
+    ul { margin: 1.5em 0;
+      li { margin: 1.25em 0; } 
+    }
+  }
+  a {
+    font-size: 1.5em;
+    color: $black;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
+}
+
+.left { float: left; }
+.right { float: right; }
+
+.col {
+  padding: 2em 0;
+  width: 48%;
+}
+
+#main-content {
+  width: 80.2em;
+  padding: 1em;
+  float: right;
+}
+
+.actions {
+  float: right;
+  width: auto;
+}
+
+.tags {
+  margin: 1em 0;
+  li {
+    display: inline-block;
+    padding: 0.25em;
+    margin: 0.25em 0.5em;
+    &:first-child { margin-left: 0; }
+    span { display: block; padding: 0.25em 0.5em; }
+    a, span { float: left; }
+  }
+}
+
+menu.tabs {
+  position: absolute;
+  top: 0;
+  right: 0;
+  li {
+    float: left;
+    width: auto;
+    a {
+      display: block;
+      font-size: 1.17em;
+      padding: 0.88em 1.2em;
+    }
+  }
+}
+
+.list {
+  padding: 0.5em;
+  margin: 1.5em 0;
+}
+
+.image {
+  padding: 0.3em;
+  min-height: 6.67em;
+  margin: 0.5em 0;
+  &:first-child { margin-top: 0; }
+  &:last-child { margin-bottom: 0; }
+  .img-container {
+    width: 80px; 
+    height: 80px;
+    display: inline-block;
+  }
+  ul {
+    display: inline-block;
+    vertical-align: top; 
+  }
+}

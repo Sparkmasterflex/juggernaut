@@ -1,0 +1,18 @@
+%h4 Upload Image
+  
+%form.clearfix{:action => '/images', :method => 'POST', 'data-remote' => 'true', 'data-type' => 'html', :enctype => "multipart/form-data"}
+  .field.tight
+    %label{:for => 'attachment'} Image
+    %input#attachment{:type => 'file', :name => 'image[attachment]'}
+    %input{:type => 'hidden', :name => 'image[attachable_id]', :value => @parent_id}
+    %input{:type => 'hidden', :name => 'image[attachable_type]', :value => @klass}
+    
+  .field.tight
+    %label{:for => 'title'} Title
+    %input#title{:type => 'text', :name => 'image[title]'}
+
+  .field.tight
+    %label{:for => 'caption'} Caption
+    %textarea#caption.small{:name => 'image[caption]'}
+    
+  %input.right{:type => 'submit', :value => 'Upload'}

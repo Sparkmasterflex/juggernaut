@@ -1,0 +1,112 @@
+$white: #e1e1e1;
+$grey: #cccccc;
+$dk-grey: #666;
+$black: #333;
+$lt-green: #94D188;
+$green: #4a8f3d;
+$dk-green: #21491a;
+
+
+/*------------------------------------------------ CSS3 Crossbrowser ----*/
+@mixin gradient-two($c1, $c2, $p1: 0%, $p2: 100%, $start: top) {
+  background-color: $c1;
+  background: -moz-linear-gradient($start, $c1 $p1, $c2 $p2);
+  background: -webkit-linear-gradient($start, $c1 $p1, $c2 $p2);
+  background: -o-linear-gradient($start, $c1 $p1, $c2 $p2);
+  background: -ms-linear-gradient($start, $c1 $p1, $c2 $p2);
+  background: linear-gradient($start,$c1 $p1, $c2 $p2);
+  @if $start == top {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop($p1,$c1), color-stop($p2,$c2));
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$c1', endColorstr='$c2',GradientType=0 );
+  } @else {
+    background: -webkit-gradient(linear, left top, right bottom, color-stop($p1,$c1), color-stop($p2,$c2));
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$c1', endColorstr='$c2',GradientType=1 );
+  }
+}
+
+@mixin image-and-gradient($image, $c1, $c2, $start: top) {
+  background: $c1 $image;
+  background: $image, -moz-linear-gradient($start, $c1 0%, $c2 100%);
+  background: $image, -webkit-linear-gradient($start, $c1 0%, $c2 100%);
+  background: $image, -o-linear-gradient($start, $c1 0%, $c2 100%);
+  background: $image, -ms-linear-gradient($start, $c1 0%, $c2 100%);
+  background: $image, linear-gradient($start, $c1 0%, $c2 100%);
+  @if $start == top {
+    background: $image, -webkit-gradient(linear, left top, left bottom, color-stop(0%,$c1), color-stop(100%,$c2));
+  } @else {
+    background: $image, -webkit-gradient(linear, left top, right bottom, color-stop(0%,$c1), color-stop(100%,$c2));
+  }
+}
+
+@mixin border-radius($tl, $tr: null, $br: null, $bl: null) {
+  @if $tr == null {
+    border-radius: $tl;
+    -moz-border-radius: $tl;
+    -webkit-border-radius: $tl;
+  } @else {
+    border-radius: $tl $tr $br $bl;
+    -moz-border-radius: $tl $tr $br $bl;
+    -webkit-border-radius: $tl $tr $br $bl;
+  }
+}
+
+@mixin box-shadow($x, $y, $blur, $c) {
+  -moz-box-shadow: $x $y $blur $c;
+  -o-box-shadow: $x $y $blur $c;
+  -webkit-box-shadow: $x $y $blur $c;
+  box-shadow: $x $y $blur $c;
+}
+
+@mixin inset-shadow($x, $y, $blur, $c) {
+  -moz-box-shadow: inset $x $y $blur $c;
+  -o-box-shadow: inset $x $y $blur $c;
+  -webkit-box-shadow: inset $x $y $blur $c;
+  box-shadow: inset $x $y $blur $c;
+}
+
+@mixin transition($property, $duration: 0.25s, $ease: ease-in, $delay: 0s) {
+  transition: $property $duration $ease $delay;
+  -webkit-transition: $property $duration $ease $delay;
+  -moz-transition: $property $duration $ease $delay;
+  -o-transition: $property $duration $ease $delay;
+}
+
+@mixin box-sizing($style) {
+  box-sizing: $style;
+ -webkit-box-sizing: $style;
+ -moz-box-sizing: $style;
+}
+
+@mixin rotate($percent) {
+  transform: rotate($percent);
+  -webkit-transform: rotate($percent);
+  -moz-transform: rotate($percent);
+  -o-transform: rotate($percent);
+  -ms-transform: rotate($percent);
+}
+
+@mixin bg-size($w, $h) {
+  background-size: $w $h;
+  -webkit-background-size: $w $h;
+  -moz-background-size: $w $h;
+  -o-background-size: $w $h;
+  -ms-background-size: $w $h;  
+}
+
+@mixin animation($name, $dur, $ease, $it) {
+  -webkit-animation-name: $name;
+  -webkit-animation-duration: $dur;
+  -webkit-animation-timing-function: $ease;
+  -webkit-animation-iteration-count: $it;
+}
+
+
+@mixin square($dim) {
+  width: $dim;
+  height: $dim;
+}
+
+@mixin hidden {
+  text-indent: -9999px;
+  overflow: hidden;
+}

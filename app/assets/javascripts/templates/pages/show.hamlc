@@ -1,0 +1,6 @@
+%h3.green-bg= @title
+%p= @path
+%p= @preview
+%p= @body
+
+%a{:href => "/#/pages/#{@id}/edit"} Edit page

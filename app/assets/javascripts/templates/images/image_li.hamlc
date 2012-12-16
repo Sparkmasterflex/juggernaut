@@ -1,0 +1,13 @@
+.img-container.greybox
+  %img{:src => @thumb, :alt => @title}
+%ul
+  %li
+    %span.label Image title:
+    = @title
+  %li
+    %span.label Caption:
+    = @caption or "No caption"
+  %li
+    %span.label Uploaded:
+    = @uploaded_at
+%a.drag{:href => '#move'} Reorder 

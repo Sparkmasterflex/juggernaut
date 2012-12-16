@@ -1,0 +1,13 @@
+%hgroup.green-bg{'data-open' => 'images'}
+  %h3= "#{@title} Images"
+  %menu.tabs.switch
+    %li
+      %a{:href => "/#/projects/#{@id}"} content
+    %li
+      %a.active{:href => "/#/projects/#{@id}/images"} images
+      
+.col.left
+  %p.spinner Loading...
+      
+.col.right
+  %p.spinner Loading...

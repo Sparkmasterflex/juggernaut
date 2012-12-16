@@ -1,0 +1,18 @@
+%hgroup.green-bg{'data-open' => 'content'}
+  %h3= @title
+  %menu.tabs.switch
+    %li
+      %a.active{:href => "/#/projects/#{@id}"} content
+    %li
+      %a{:href => "/#/projects/#{@id}/images"} images
+
+%p= @body
+
+%ul
+  %li= @client
+  %li= "#{@progress}%"
+  %li= @start_date
+  %li= @end_date
+  
+
+%a{:href => "/#/projects/#{@id}/edit"} Edit project

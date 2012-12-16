@@ -1,0 +1,91 @@
+@import 'mixins';
+
+*:focus { outline: none; }
+a:focus { text-decoration: underline; }
+
+form { padding: 2em 0; }
+
+input, textarea, select {
+  border: 1px solid $black;
+  font-size: 1.8em;
+  padding: 0.17em 0.22em;
+  @include border-radius(3px);
+  &:focus { border: 1px solid $green; }
+  &[readonly] {
+    background: $grey;
+    background: rgba(74, 143, 61, 0.25);
+    color: $dk-green;
+  }
+}
+
+textarea {
+  width: 90%;
+  height: 16.67em;
+  &.preview { height: 8.33em; }
+  &.small { height: 4em; width: 95%; }
+}
+
+.field {
+  display: inline-block;
+  width: 100%;
+  margin: 1.25em 0;
+  &.tight { margin: 0.5em 0; }
+  label {
+    display: block; 
+    font-size: 1.4em;
+    width: 100%;
+    margin-bottom: 0.35em; 
+    color: $dk-grey;
+  }
+  input, select { width: 95%; }
+}
+
+.two-col {
+  .field {
+    width: 45%;
+    margin-right: 1em;
+  }
+}
+
+.three-col {
+  .field {
+    width: 31%;
+    margin-right: 1em;
+  }
+}
+
+input[type=submit] {
+  padding: 0.2em 0.75em;
+  border: 1px solid $dk-green;
+  background: $green;
+  color: $white;
+  &:hover { background: $dk-green; }
+}
+
+#toolbar-ta {
+  width: 90%;
+  padding: 0.2em 0.25em;
+  margin: 0.5em 0;
+  li { 
+    float: left;
+    border-right: 1px solid $dk-green;
+    &:last-child { border-color: transparent; }
+  }
+  a {
+    display: inline-block;
+    @include hidden;
+    width: 4.17em;
+    height: 2.5em;
+    background-position: center center;
+    background-repeat: no-repeat;
+    &.bold { background-image: url(toolbar/bold.png); }
+    &.italic { background-image: url(toolbar/italic.png); }
+    &.unordered { background-image: url(toolbar/unordered.png); }
+    &.ordered { background-image: url(toolbar/ordered.png); }
+    &.h1-icon { background-image: url(toolbar/h1.png); }
+    &.h2-icon { background-image: url(toolbar/h2.png); }
+    &.speech { background-image: url(toolbar/speech.png); }
+    &.link { background-image: url(toolbar/link.png); }
+    &.image { background-image: url(toolbar/image.png); }
+  }
+}

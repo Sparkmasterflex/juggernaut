@@ -1,0 +1,37 @@
+%h3.green-bg= @header
+
+%form
+  .field
+    %label{:for => 'title'} Page Title
+    %input#title{:type => 'text', :name => 'title', :value => @title}
+    
+  .field
+    %label{:for => 'path'} Path (for url)
+    %input#path{:type => 'text', :name => 'path', :readonly => true, :value => @path}
+
+  .field
+    %label{:for => 'preview-text'} Preview Text
+    %textarea#preview-text.preview= @preview or ""
+
+  .field
+    %label{:for => 'body-text'} Body Text
+    %ul#toolbar-ta.green-bg.clearfix
+      %li
+        %a.bold{'data-wysihtml5-command' => "bold"} bold
+      %li
+        %a.italic{'data-wysihtml5-command' => "italic"} italic
+      %li
+        %a.unordered{'data-wysihtml5-command' => "insertUnorderedList"} List
+      %li
+        %a.ordered{'data-wysihtml5-command' => "insertOrderedList"} Numbered List
+      %li
+        %a.h1-icon{'data-wysihtml5-command' => "formatBlock", 'data-wysihtml5-command-value' => "h1"} h1
+      %li
+        %a.h2-icon{'data-wysihtml5-command' => "formatBlock", 'data-wysihtml5-command-value' => "h2"} h2
+      %li
+        %a.speech{'data-wysihtml5-command' => "insertSpeech"} Speech
+        
+    %textarea#body-text= @body or ""
+  
+  %input{:type => 'submit', :value => 'Submit'}
+  

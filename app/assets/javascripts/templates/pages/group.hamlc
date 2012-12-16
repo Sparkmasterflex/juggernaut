@@ -1,0 +1,5 @@
+%h3.green-bg Pages
+%ul
+  %li No Pages created
+
+%a.add{:href => "/#/pages/new"} Create Page
