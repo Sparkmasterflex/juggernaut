@@ -1,10 +1,11 @@
 %hgroup.green-bg
   %h3= @header
-  %menu.tabs.switch
-    %li
-      %a.active{:href => "/#/projects/#{@id}"} content
-    %li
-      %a{:href => "/#/projects/#{@id}/images"} images
+  - if @id?
+    %menu.tabs.switch
+      %li
+        %a.active{:href => "/#/projects/#{@id}"} content
+      %li
+        %a{:href => "/#/projects/#{@id}/images"} images
 
 %form
   .two-col

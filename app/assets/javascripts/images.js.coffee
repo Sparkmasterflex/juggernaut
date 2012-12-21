@@ -58,7 +58,6 @@ $ ->
       _.bindAll this, 'render', 'fetch_images', 'save_model'
       this.images = this.options.images
       this.parent = this.options.parent
-      console.log this.parent
       
     render: () ->
       this.model.set 'parent', this.parent

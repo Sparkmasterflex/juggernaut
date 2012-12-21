@@ -15,6 +15,7 @@ $ ->
       'pages/new': 'new_page'
       'pages/:id/edit': 'edit_page'
       'pages/:id': 'show_page'
+      'pages/:id/images': 'page_images'
       
       # project routes
       'projects/new': 'new_project'
@@ -158,6 +159,16 @@ $(window).load () ->
         el: $('#main-content')
         model: project
         item: 'Project'
+      images_index.render().el
+
+  app_router.on 'route:page_images', (actions) ->
+    $.when(add_sidebar()).then () =>
+      page = get_page actions
+      window.images_index = null if window.images_index?
+      window.images_index = new ImageIndex
+        el: $('#main-content')
+        model: page
+        item: 'Page'
       images_index.render().el
           
 

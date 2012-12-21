@@ -1,13 +1,27 @@
-%h3.green-bg= @header
+%hgroup.green-bg
+  %h3= @header
+  - if @id?
+    %menu.tabs.switch
+      %li
+        %a{:href => "/#/pages/#{@id}"} content
+      %li
+        %a.active{:href => "/#/pages/#{@id}/images"} images
 
 %form
-  .field
-    %label{:for => 'title'} Page Title
-    %input#title{:type => 'text', :name => 'title', :value => @title}
+  .three-col
+    .field
+      %label{:for => 'title'} Page Title
+      %input#title{:type => 'text', :name => 'title', :value => @title}
+      
+    .field
+      %label{:for => 'path'} Path (for url)
+      %input#path{:type => 'text', :name => 'path', :readonly => true, :value => @path}
     
-  .field
-    %label{:for => 'path'} Path (for url)
-    %input#path{:type => 'text', :name => 'path', :readonly => true, :value => @path}
+    .field
+      - console.log @homepage
+      %input#home_page{:type => 'checkbox', :checked => (@home_page? && @home_page)}
+      %label{:for => 'home_page'} Mark as homepage
+    
 
   .field
     %label{:for => 'preview-text'} Preview Text

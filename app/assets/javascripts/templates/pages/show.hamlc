@@ -1,4 +1,10 @@
-%h3.green-bg= @title
+%hgroup.green-bg
+  %h3= @title
+  %menu.tabs.switch
+    %li
+      %a.active{:href => "/#/pages/#{@id}"} content
+    %li
+      %a{:href => "/#/pages/#{@id}/images"} images
 %p= @path
 %p= @preview
 %p= @body
