@@ -6,6 +6,7 @@ class CreateImages < ActiveRecord::Migration
       t.string  :title
       t.text    :caption
       t.integer :item_order
+      t.boolean :visible
 
       t.timestamps
     end

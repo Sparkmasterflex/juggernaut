@@ -81,3 +81,11 @@ header ul li {
   @include border-radius(3px);
   color: $white;
 }
+
+.drag {
+  background-color: $white;
+  background-color: rgba(225, 225, 225, 0.4);
+  background-position: center center;
+  border-left: 1px solid $black;
+  @include border-radius(0, 3px, 3px 0);
+}

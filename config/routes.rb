@@ -7,7 +7,11 @@ Juggernaut::Application.routes.draw do
   resources :editors
   resources :pages
   resources :projects
-  resources :images
+  resources :images do
+    member do
+      put :reorder
+    end
+  end
   
   
   match "/validate/#{Image::TOKEN_URL}" => 'application#get_csrf_token', :as => :get_csrf_token, :via => :get

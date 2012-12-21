@@ -122,17 +122,31 @@ menu.tabs {
   }
 }
 
+menu.vertical {
+  float: right;
+  margin-right: 2.5em;
+  li { width: 1.67em; margin: 0.5em 0; }
+}
+
 .list {
   padding: 0.5em;
   margin: 1.5em 0;
 }
 
 .image {
+  position: relative;
   padding: 0.3em;
   min-height: 6.67em;
   margin: 0.5em 0;
   &:first-child { margin-top: 0; }
   &:last-child { margin-bottom: 0; }
+  a.top-right {
+    display: block;
+    width: 2.5em;
+    height: 100%;
+    padding: 0;
+    @include hidden;
+  }
   .img-container {
     width: 80px; 
     height: 80px;
@@ -140,6 +154,13 @@ menu.tabs {
   }
   ul {
     display: inline-block;
-    vertical-align: top; 
+    vertical-align: top;
+    width: 61%;
   }
+}
+
+.top-right { 
+  position: absolute; 
+  top: 0; 
+  right: 0;
 }

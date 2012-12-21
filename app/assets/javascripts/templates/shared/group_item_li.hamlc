@@ -1,8 +1,8 @@
 %a{:href => "/#/#{@to_path}/#{@id}"}= @title
 .actions
   %a.edit.icon{:href => "/#/#{@to_path}/#{@id}/edit"} Edit
-  %a.page.delete.icon{:href => "/#/#{@to_path}/#{@id}/delete"} Delete
-  - if @visible is true
+  - if @visible
     %a.invisible.icon{:href => "#set_visibity"} Invisible
   - else 
     %a.visible.icon{:href => "#set_visibity"} Visible 
+  %a.page.delete.icon{:href => "/#/#{@to_path}/#{@id}/delete"} Delete

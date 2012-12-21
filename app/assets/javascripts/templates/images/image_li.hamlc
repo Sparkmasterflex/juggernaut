@@ -10,4 +10,15 @@
   %li
     %span.label Uploaded:
     = @uploaded_at
-%a.drag{:href => '#move'} Reorder 
+%menu.action.vertical
+  %li
+    %a.edit.icon{:href => "#edit", :title => "Edit Image Attributes"} Edit Image
+  %li
+    - if @visible
+      %a.invisible.icon{:href => "#set_visibity", :title => "Set Image to Invisible"} Invisible
+    - else 
+      %a.visible.icon{:href => "#set_visibity", :title => "Set Image to Visible"} Visible
+  %li
+    %a.delete.icon{:href => "#delete", :title => "Delete Image"} Delete Image 
+    
+%a.drag.top-right{:href => '#move', 'data-order' => @item_order} Reorder 

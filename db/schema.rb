@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20121213004420) do
     t.string   "title"
     t.text     "caption"
     t.integer  "item_order"
+    t.boolean  "visible"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
     t.string   "attachment_file_name"

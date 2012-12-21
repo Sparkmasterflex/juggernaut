@@ -1,18 +1,30 @@
-%h4 Upload Image
+- if @editing
+  %h4 Edit Image
+- else
+  %h4 Upload Image
+
   
 %form.clearfix{:action => '/images', :method => 'POST', 'data-remote' => 'true', 'data-type' => 'html', :enctype => "multipart/form-data"}
-  .field.tight
-    %label{:for => 'attachment'} Image
-    %input#attachment{:type => 'file', :name => 'image[attachment]'}
-    %input{:type => 'hidden', :name => 'image[attachable_id]', :value => @parent_id}
-    %input{:type => 'hidden', :name => 'image[attachable_type]', :value => @klass}
+  - unless @editing
+    .field.tight
+      %label{:for => 'attachment'} Image
+      %input#attachment{:type => 'file', :name => 'image[attachment]'}
+      %input{:type => 'hidden', :name => 'image[attachable_id]', :value => @parent['id']}
+      %input{:type => 'hidden', :name => 'image[attachable_type]', :value => @parent['klass']}
+  - else
+    %img{:src => @large, :alt => @title}
+    .field.tight
+      %input#visible{:type => 'checkbox', :checked => @visible}
+      %label{:for => 'visible'} Visible
     
   .field.tight
     %label{:for => 'title'} Title
-    %input#title{:type => 'text', :name => 'image[title]'}
+    %input#title{:type => 'text', :name => 'image[title]', :value => @title}
 
   .field.tight
     %label{:for => 'caption'} Caption
-    %textarea#caption.small{:name => 'image[caption]'}
+    %textarea#caption.small{:name => 'image[caption]'}= @caption
     
-  %input.right{:type => 'submit', :value => 'Upload'}
+  %input.right{:type => 'submit', :value => if @editing then 'Update' else 'Upload'}
+  - if @editing
+    %a.delete{:href => '#cancel'} cancel
