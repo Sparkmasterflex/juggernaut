@@ -43,10 +43,13 @@ $ ->
       this
       
     add_group: (collection, group) ->
-      view = switch group
-        when 'pages' then new PagesSidebarView { el: this.$('#pages'), collection: collection }
-        when 'projects' then new ProjectsSidebarView { el: this.$('#projects'), collection: collection }
-      view.render().el
+      switch group
+        when 'pages' 
+          window.pagesSidebar = new PagesSidebarView { el: this.$('#pages'), collection: collection }
+          pagesSidebar.render().el
+        when 'projects' 
+          window.projectsSidebar = new ProjectsSidebarView { el: this.$('#projects'), collection: collection }
+          projectsSidebar.render().el
 #### End Sidebar
 
 #### Start SidebarGroupView

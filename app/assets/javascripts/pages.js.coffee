@@ -38,14 +38,15 @@ $ ->
       this.model.set { header: header }
       
     save_model: () ->
-      this.model.set
+      attrs =
         title: $('input#title').val()
         path: $('input#path').val()
         preview: $('textarea#preview-text').val()
         body: $('textarea#body-text').val(), 
-      this.pages.create this.model,
+      this.model.save attrs,
         wait: false,
         success: (response) =>
+          window.pagesSidebar.collection.add response
           window.location = "/#/pages/#{@model.get('id')}"
           
       false

@@ -40,7 +40,7 @@ $ ->
       this.model.set { header: header }
       
     save_model: (e) ->
-      this.model.set
+      attrs =
         title: $('input#title').val()
         body: $('textarea#body-text').val()
         progress: $('select#progress option:selected').val()
@@ -48,9 +48,10 @@ $ ->
         start_date: $('input#start-date').val()
         technology: $('input#technology').val()
         
-      this.projects.create this.model,
+      this.model.save attrs,
         wait: false,
         success: (response) =>
+          window.projectsSidebar.collection.add response
           window.location = "/#/projects/#{@model.get('id')}"
       
       false

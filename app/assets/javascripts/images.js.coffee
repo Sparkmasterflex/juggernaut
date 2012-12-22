@@ -139,7 +139,7 @@ $ ->
           else
             false
         canDrop: ($dst) =>
-          if $dst.is("li") 
+          if $dst.is("li.sticker") 
             @dstIndex = $dst.index()
             if @srcIndex < @dstIndex
               @$srcElement.insertAfter($dst)
