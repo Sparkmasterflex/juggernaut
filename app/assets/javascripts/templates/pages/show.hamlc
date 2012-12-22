@@ -5,8 +5,19 @@
       %a.active{:href => "/#/pages/#{@id}"} content
     %li
       %a{:href => "/#/pages/#{@id}/images"} images
-%p= @path
-%p= @preview
-%p= @body
 
-%a{:href => "/#/pages/#{@id}/edit"} Edit page
+.col.full
+  .three-col
+    .field
+      %label URL
+      %p= "/#{@path}"
+  
+  .field
+    %label Preview Text
+    %p= @preview
+  
+  .field
+    %label Page Body
+    .page-body
+  
+  %a{:href => "/#/pages/#{@id}/edit"} Edit page

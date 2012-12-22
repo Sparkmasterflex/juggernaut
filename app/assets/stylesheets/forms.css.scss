@@ -25,19 +25,25 @@ textarea {
   &.small { height: 4em; width: 95%; }
 }
 
+label {
+  display: block; 
+  font-size: 1.4em;
+  width: 100%;
+  padding-bottom: 0.2em;
+  margin-bottom: 0.35em;
+  color: $dk-grey;
+  border-bottom: 1px solid $dk-grey;
+}
+
+
 .field {
   display: inline-block;
   width: 100%;
   margin: 1.25em 0;
   &.tight { margin: 0.5em 0; }
-  label {
-    display: block; 
-    font-size: 1.4em;
-    width: 100%;
-    margin-bottom: 0.35em; 
-    color: $dk-grey;
-  }
   input, select { width: 95%; }
+  input[type=checkbox], 
+  input[type=checkbox] + label { display: inline-block; width: auto; }
 }
 
 .two-col {
@@ -74,8 +80,8 @@ input[type=submit] {
   a {
     display: inline-block;
     @include hidden;
-    width: 4.17em;
-    height: 2.5em;
+    width: 2.78em;
+    height: 1.67em;
     background-position: center center;
     background-repeat: no-repeat;
     &.bold { background-image: url(toolbar/bold.png); }

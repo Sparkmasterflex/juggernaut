@@ -76,6 +76,8 @@ $ ->
     render: () ->
       this.template = _.template JST['pages/show'](this.model.toJSON())
       this.$el.html this.template()
+      body = this.model.get('body').replace(/<div>/g, "<p>").replace(/<\/div>/g, "</p>")
+      this.$('.page-body').html body
       
       this
 #### End ShowPageView

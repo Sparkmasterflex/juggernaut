@@ -111,6 +111,8 @@ $ ->
     render: () ->
       this.template = _.template JST['projects/show'](this.model.toJSON())
       this.$el.html this.template()
+      body = this.model.get('body').replace(/<div>/g, "<p>").replace(/<\/div>/g, "</p>")
+      this.$('.project-body').html body
       
       this
 #### End ShowProjectView

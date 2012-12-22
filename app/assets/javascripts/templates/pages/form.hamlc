@@ -18,9 +18,8 @@
       %input#path{:type => 'text', :name => 'path', :readonly => true, :value => @path}
     
     .field
-      - console.log @homepage
       %input#home_page{:type => 'checkbox', :checked => (@home_page? && @home_page)}
-      %label{:for => 'home_page'} Mark as homepage
+      %label.no-border{:for => 'home_page'} Mark as homepage
     
 
   .field

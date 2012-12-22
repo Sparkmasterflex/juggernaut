@@ -6,13 +6,20 @@
     %li
       %a{:href => "/#/projects/#{@id}/images"} images
 
-%p= @body
+.col.full
+  .field
+    %label Page Body
+    .project-body
 
-%ul
-  %li= @client
-  %li= "#{@progress}%"
-  %li= @start_date
-  %li= @end_date
-  
+  .three-col
+    .field
+      %label Client
+      %p= @client || "None"
+    .field
+      %label Progress
+      %p= "#{@progress}%"
+    .field
+      %label Started
+      %p= @start_date
 
 %a{:href => "/#/projects/#{@id}/edit"} Edit project
