@@ -6,4 +6,5 @@ class Page < ActiveRecord::Base
   has_many :images, :as => :attachable
   
   validates :title, :body, :path, :presence => true
+  validates :title, :path, :uniqueness => true
 end

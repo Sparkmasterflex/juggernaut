@@ -22,6 +22,12 @@ $ ->
       'projects/:id/edit': 'edit_project'
       'projects/:id': 'show_project'
       'projects/:id/images': 'project_images'
+
+      # post routes
+      'posts/new': 'new_post'
+      'posts/:id/edit': 'edit_post'
+      'posts/:id': 'show_post'
+      'posts/:id/images': 'post_images'
       
       # default
       '*actions': 'default_route'
@@ -35,11 +41,13 @@ $ ->
       _.bindAll this, 'render'
       this.pages = this.options.pages
       this.projects = this.options.projects
+      this.posts = this.options.posts
       
     render: () ->
       this.$el.html this.template()
       this.add_group(this.pages, 'pages')
       this.add_group(this.projects, 'projects')
+      this.add_group(this.posts, 'posts')
       this
       
     add_group: (collection, group) ->
@@ -50,6 +58,9 @@ $ ->
         when 'projects' 
           window.projectsSidebar = new ProjectsSidebarView { el: this.$('#projects'), collection: collection }
           projectsSidebar.render().el
+        when 'posts' 
+          window.postsSidebar = new PostsSidebarView { el: this.$('#posts'), collection: collection }
+          postsSidebar.render().el
 #### End Sidebar
 
 #### Start SidebarGroupView
@@ -92,6 +103,7 @@ $(window).load () ->
 #### Router actions
   app_router = new AppRouter
   
+  #### START PAGE ROUTES ####
   app_router.on 'route:new_page', (actions) ->
     $.when(add_sidebar()).then () =>
       unless window.new_page?
@@ -122,7 +134,20 @@ $(window).load () ->
       else
         window.show_page.model = page
       window.show_page.render().el
+      
+  app_router.on 'route:page_images', (actions) ->
+    $.when(add_sidebar()).then () =>
+      page = get_page actions
+      window.images_index = null if window.images_index?
+      window.images_index = new ImageIndex
+        el: $('#main-content')
+        model: page
+        item: 'Page'
+      images_index.render().el
+   #### END PAGE ROUTES ####
 
+
+  #### START PROJECT ROUTES ####
   app_router.on 'route:new_project', (actions) ->
     $.when(add_sidebar()).then () =>
       unless window.new_project?
@@ -163,17 +188,51 @@ $(window).load () ->
         model: project
         item: 'Project'
       images_index.render().el
-
-  app_router.on 'route:page_images', (actions) ->
+  #### END PROJECT ROUTES ####
+  
+  
+  #### START POST ROUTES ####
+  app_router.on 'route:new_post', (actions) ->
     $.when(add_sidebar()).then () =>
-      page = get_page actions
+      unless window.new_post?
+        window.new_post = new NewPostView
+          el: $('#main-content')
+          posts: window.posts_collection
+      new_post.render().el
+
+  app_router.on 'route:edit_post', (actions) ->
+    $.when(add_sidebar()).then () =>
+      post = get_post actions
+      unless window.edit_post?
+        window.edit_post = new EditPostView
+          el: $('#main-content')
+          model: post
+          posts: window.posts_collection
+      else
+        window.edit_post.model = post
+      edit_post.render().el
+      
+  app_router.on 'route:show_post', (actions) ->
+    $.when(add_sidebar()).then () =>
+      post = get_post actions
+      unless window.show_post?
+        window.show_post = new ShowPostView
+          el: $('#main-content')
+          model: post
+      else
+        window.show_post.model = post
+      window.show_post.render().el
+      
+  app_router.on 'route:post_images', (actions) ->
+    $.when(add_sidebar()).then () =>
+      post = get_post actions
       window.images_index = null if window.images_index?
       window.images_index = new ImageIndex
         el: $('#main-content')
-        model: page
-        item: 'Page'
+        model: post
+        item: 'Post'
       images_index.render().el
-          
+  #### END POST ROUTES ####
 
   app_router.on 'route:default_route', (actions) ->
     add_sidebar()
@@ -181,14 +240,14 @@ $(window).load () ->
   Backbone.history.start()
           
 add_sidebar = () ->
-  $.when(fetch_pages()).then () ->
-    $.when(fetch_projects()).then () ->
-      unless window.sidebar?
-        window.sidebar = new Sidebar
-          el: $('aside')
-          pages: window.pages_collection
-          projects: window.projects_collection
-        sidebar.render().el
+  $.when(fetch_pages(), fetch_projects(), fetch_posts()).then () ->
+    unless window.sidebar?
+      window.sidebar = new Sidebar
+        el: $('aside')
+        pages: window.pages_collection
+        projects: window.projects_collection
+        posts: window.posts_collection
+      sidebar.render().el
         
 fetch_pages = () ->
   window.pages_collection = new Pages()
@@ -198,6 +257,10 @@ fetch_projects = () ->
   window.projects_collection = new Projects()
   window.projects_collection.fetch()
 
-get_page = (id) -> window.pages_collection.where({id: parseInt(id)})[0]
+fetch_posts = () ->
+  window.posts_collection = new Posts()
+  window.posts_collection.fetch()
 
+get_page = (id) -> window.pages_collection.where({id: parseInt(id)})[0]
 get_project = (id) -> window.projects_collection.where({id: parseInt(id)})[0]
+get_post = (id) -> window.posts_collection.where({id: parseInt(id)})[0]

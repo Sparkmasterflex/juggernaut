@@ -4,3 +4,6 @@
 #projects.section
   %p Loading...
     
+#posts.section
+  %p Loading...
+    

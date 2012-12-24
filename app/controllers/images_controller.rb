@@ -14,7 +14,6 @@ class ImagesController < ApplicationController
   
   def create
     if remotipart_submitted?
-      Rails.logger.info "==== attach_type: #{params[:image][:attachable_type]} ===="
       @parent = params[:image][:attachable_type].constantize.find(params[:image][:attachable_id])
       @image = Image.create(params[:image].merge(:item_order => @parent.images.size))
       respond_with(@image, :layout => false)

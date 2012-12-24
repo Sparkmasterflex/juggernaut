@@ -17,6 +17,6 @@ class PagesController < ApplicationController
   end
 
   def update
-    respond_with @page = Page.find(params[:id]).update_attributes(params[:page])
+    respond_with @page = Page.find(params[:id]).update_attributes(params[:page].merge(:update_by => current_user.id))
   end
 end

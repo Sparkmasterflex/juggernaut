@@ -49,6 +49,7 @@ nav {
     position: absolute;
     top: -0.65em;
     right: -0.25em;
+    z-index: 2;
     width: 11em;
     padding: 2em 0.83em 0.83em;
     li { float: none; margin: 0.5em 0; }

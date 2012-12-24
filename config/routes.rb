@@ -7,6 +7,7 @@ Juggernaut::Application.routes.draw do
   resources :editors
   resources :pages
   resources :projects
+  resources :posts
   resources :images do
     member do
       put :reorder

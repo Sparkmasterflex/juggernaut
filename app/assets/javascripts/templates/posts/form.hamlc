@@ -1,0 +1,50 @@
+%hgroup.green-bg
+  %h3= @header
+  - if @id?
+    %menu.tabs.switch
+      %li
+        %a{:href => "/#/posts/#{@id}"} content
+      %li
+        %a.active{:href => "/#/posts/#{@id}/images"} images
+
+%form
+  .three-col
+    .field
+      %label{:for => 'title'} Title
+      %input#title{:type => 'text', :name => 'title', :value => @title}
+      
+    .field
+      %label{:for => 'category'} Category
+      %select#category
+        %option Please select
+        %option{:value => 10} Uncatergorized
+        %option{:value => 20} Travel/Vacation
+        %option{:value => 30} Projects
+        %option{:value => 40} Technology
+        %option{:value => 50} My Rants
+      
+  .field
+    %label{:for => 'preview-text'} Preview Text
+    %textarea#preview-text.preview= @preview or ""
+      
+  .field
+    %label{:for => 'body-text'} Body Text
+    %ul#toolbar-ta.green-bg.clearfix
+      %li
+        %a.bold{'data-wysihtml5-command' => "bold"} bold
+      %li
+        %a.italic{'data-wysihtml5-command' => "italic"} italic
+      %li
+        %a.unordered{'data-wysihtml5-command' => "insertUnorderedList"} List
+      %li
+        %a.ordered{'data-wysihtml5-command' => "insertOrderedList"} Numbered List
+      %li
+        %a.h1-icon{'data-wysihtml5-command' => "formatBlock", 'data-wysihtml5-command-value' => "h1"} h1
+      %li
+        %a.h2-icon{'data-wysihtml5-command' => "formatBlock", 'data-wysihtml5-command-value' => "h2"} h2
+      %li
+        %a.speech{'data-wysihtml5-command' => "insertSpeech"} Speech
+        
+    %textarea#body-text= @body or ""
+  
+  %input{:type => 'submit', :value => 'Submit'}

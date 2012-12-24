@@ -1,0 +1,26 @@
+%hgroup.green-bg
+  %h3= @title
+  %menu.tabs.switch
+    %li
+      %a.active{:href => "/#/posts/#{@id}"} content
+    %li
+      %a{:href => "/#/posts/#{@id}/images"} images
+
+.col.full
+  .three-col
+    .field
+      %label Category
+      %p= @category_label
+    .field
+      %label Author
+      %p= @author_name
+  
+  .field
+    %label Preview Text
+    %p= @preview
+  
+  .field
+    %label Post Body
+    .post-body
+  
+  %a{:href => "/#/posts/#{@id}/edit"} Edit post

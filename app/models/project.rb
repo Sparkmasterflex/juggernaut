@@ -5,4 +5,5 @@ class Project < ActiveRecord::Base
   has_many :images, :as => :attachable
   
   validates :title, :body, :presence => true
+  validates :title, :uniqueness => true
 end

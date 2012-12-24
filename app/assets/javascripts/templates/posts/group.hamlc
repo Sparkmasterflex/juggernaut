@@ -1,0 +1,5 @@
+%h3.green-bg Blog Posts
+%ul
+  %li No Posts created
+
+%a.add{:href => "/#/posts/new"} Create Post

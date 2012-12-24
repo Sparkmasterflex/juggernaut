@@ -42,7 +42,7 @@ $ ->
         title: $('input#title').val()
         path: $('input#path').val()
         preview: $('textarea#preview-text').val()
-        body: $('textarea#body-text').val(), 
+        body: $('textarea#body-text').val()
       this.model.save attrs,
         wait: false,
         success: (response) =>
